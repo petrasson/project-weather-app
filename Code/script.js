@@ -77,13 +77,13 @@ const ShowCityWeather = (data) => {
   /*Sunrise*/
   const unixTimestampSunrise = data.sys.sunrise; //To get sunrise/sunset time in hours:minutes:seconds
   let sunrise = new Date(unixTimestampSunrise * 1000); //Declare new variable to show only hh:mm
-  let sunriseTime = sunrise.toLocaleTimeString([], { timeStyle: "short" });
+  let sunriseTime = sunrise.toLocaleTimeString("en-SE", {hour: "numeric", minute: "numeric", timeZone: data.timezone, timeStyle: "short" });
   mainWeather.innerHTML += `<p>Sunrise: ${sunriseTime}</p>`;
 
   /*Sunset*/
   const unixTimestampSunset = data.sys.sunset;
   let sunset = new Date(unixTimestampSunset * 1000);
-  let sunsetTime = sunset.toLocaleTimeString([], { timeStyle: "short" });
+  let sunsetTime = sunset.toLocaleTimeString("en-SE", {hour: "numeric", minute: "numeric", timeZone: data.timezone, timeStyle: "short" });
   mainWeather.innerHTML += `<p>Sunset: ${sunsetTime}</p>`;
 
   /*Change apperance depending on weather*/
